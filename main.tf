@@ -61,6 +61,29 @@ resource "azurerm_network_interface" "my_terraform_nic" {
   }
 }
 
+resource "azurerm_storage_account" "my_terraform_storage_account" {
+  name                     = var.storage_account_name
+  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = azurerm_resource_group.rg.name
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+# Storage Container
+resource "azurerm_storage_container" "my_terraform_storage_container" {
+  name                  = var.container_name
+  storage_account_name  = azurerm_storage_account.my_terraform_storage_account.name
+  container_access_type = "private"
+}
+
+# Storage Blob (the actual file)
+resource "azurerm_storage_blob" "my_terraform_storage_blob" {
+  name                   = var.blob_name
+  storage_account_name   = azurerm_storage_account.my_terraform_storage_account.name
+  storage_container_name = azurerm_storage_container.my_terraform_storage_container.name
+  type                   = "Block"
+}
+
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   name                  = var.vm_name

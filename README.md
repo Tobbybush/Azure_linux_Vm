@@ -8,6 +8,9 @@ This Terraform project automates the deployment of an Azure Linux Virtual Machin
 - Public IP Address  
 - Network Security Group (NSG)  
 - Network Interface (NIC)  
+- Storage account
+- Storage container
+- storage container blob
 
 The configuration uses variables to enhance reusability and flexibility. You can customize the deployment by modifying the `terraform.tfvars` file.
 

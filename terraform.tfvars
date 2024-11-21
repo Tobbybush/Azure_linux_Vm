@@ -1,30 +1,35 @@
 # Resource Group Configuration
-resource_group_name      = "example-resource-group"
-resource_group_location  = "East US"
+resource_group_name      = "logging_test001"
+resource_group_location  = "southafricanorth"
 
 # Virtual Network and Subnet
-vnet_name                = "example-vnet"
+virtual_network_name                = "logging_test001-vn"
 vnet_address_space       = ["10.0.0.0/16"]
 subnet_name              = "example-subnet"
 subnet_address_prefixes  = ["10.0.1.0/24"]
 
 # Networking Components
-public_ip_name           = "example-public-ip"
-nsg_name                 = "example-nsg"
-nic_name                 = "example-nic"
+public_ip_name           = "logging_test001-Pip"
+nsg_name                 = "logging_test001-Nsg"
+nic_name                 = "logging_test001-Nic"
+
+storage_account_name = "example"
+container_name       = "example"
+blob_name            = "example"
+
 
 # Virtual Machine Configuration
-vm_name                  = "example-vm"
-admin_username           = "azureuser"
-ssh_public_key_path      = "~/.ssh/id_rsa.pub"
+vm_name                  = "logging_test001VM"
+admin_username           = "adminuser"
+ssh_public_key_path      = "C:/Users/USER/.ssh/id_rsa.pub"
 
 # OS Disk Configuration
-os_disk_name                  = "example"
-os_disk_caching               = "example"
-os_disk_storage_account_type  = "example"
+os_disk_name                  = "logging_test001-OsDisk"
+os_disk_caching               = "ReadWrite"
+os_disk_storage_account_type  = "Premium_LRS"
 
 # Source Image Reference
-image_publisher               = "example-image-publisher"
-image_offer                   = "example-image-offer"
-image_sku                     = "example-image-sku"
-image_version                 = "example-version"
+image_publisher               = "Canonical"
+image_offer                   = "0001-com-ubuntu-server-jammy"
+image_sku                     = "22_04-lts-gen2"
+image_version                 = "latest"
